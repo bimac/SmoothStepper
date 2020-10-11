@@ -37,7 +37,7 @@ void SmoothStepper::setInvertDirection(bool invertDirection) {
   _invertDirection = invertDirection;
 }
 
-void SmoothStepper::setStepsPerRev(unsigned long stepsPerRev) {
+void SmoothStepper::setStepsPerRev(uint32_t stepsPerRev) {
   _stepsPerRev = stepsPerRev;
 }
 
@@ -54,7 +54,7 @@ void SmoothStepper::setMaxSpeed(float vMax) {
   _vMax = vMax;
 }
 
-void SmoothStepper::setPulseWidth(unsigned int pulseWidth) {
+void SmoothStepper::setPulseWidth(uint16_t pulseWidth) {
   _pulseWidth = pulseWidth;
 }
 
@@ -66,7 +66,7 @@ void SmoothStepper::disableDriver() {
   digitalWrite(_pinEnable, LOW  ^ _invertEnable);
 }
 
-void SmoothStepper::moveSteps(long nSteps) {
+void SmoothStepper::moveSteps(int32_t nSteps) {
   float n2;
   float n3;
   float ci;
@@ -94,7 +94,7 @@ void SmoothStepper::moveSteps(long nSteps) {
   n3 = nSteps - n2;                                           // n3 is symmetric to n2
 
   // run the step sequence
-  for (long i = 1; i <= nSteps-1; i++) {
+  for (int32_t i = 1; i <= nSteps-1; i++) {
     if (i == 1)
       ci = _c0;                                               // first interval
     else if (i < n2)
@@ -110,7 +110,7 @@ void SmoothStepper::moveSteps(long nSteps) {
 }
 
 void SmoothStepper::moveDegrees(float degrees) {
-  long nSteps = round(degrees * _stepsPerRev / 360.0);
+  int32_t nSteps = round(degrees * _stepsPerRev / 360.0);
   moveSteps(nSteps);
 }
 
