@@ -77,32 +77,28 @@ void SmoothStepper::moveSteps(int32_t nSteps) {
   if (nSteps == 0)                                            // nothing to do for nSteps == 0
     return;
 
-  if (nSteps == 1) {                                          // a single step doesn't require fancy formulas
-    step();
+  step();                                                     // first step
+  if (nSteps == 1)                                            // a single step doesn't require fancy formulas
     return;
-  }
 
   // calculate transition points ("linear-factor method")
   float m  = (float) nSteps;
   float n2 = round(_vMax * _vMax / (0.736 * _a));             // eq24
   n2 = floor(min(n2, m / 2.0));                               // limit n2 to m/2
   float n3 = m - n2;                                          // n3 is symmetric to n2
-  float ci;
+  float ci = _c0;                                             // first interval
 
   // run the step sequence
   for (int32_t i = 1; i <= nSteps-1; i++) {
-    if (i == 1)
-      ci = _c0;                                               // first interval
-    else if (i < n2)
+    if (i < n2)
       ci = ci - 2.0*ci/(4.0*(i-1)+1.0) * (n2-i+1.0)/n2;       // acceleration (eq22)
     else if (i < n3)
       ci = ci;                                                // top speed
     else
       ci = ci - 2.0*ci/(4.0*(i-m)+1.0) * (i-n3)/(m-n3-1.0);   // deceleration (eq25)
-    step();                                                   // step once
     delayMicroseconds(ci - _pulseWidth);                      // delay for ci microseconds
+    step();
   }
-  step();                                                     // final step
 }
 
 void SmoothStepper::moveDegrees(float degrees) {
