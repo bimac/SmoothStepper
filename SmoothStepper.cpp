@@ -85,8 +85,8 @@ void SmoothStepper::moveSteps(int32_t nSteps) {
   // calculate transition points ("linear-factor method")
   float m  = (float) nSteps;
   float n2 = round(_vMax * _vMax / (0.736 * _a));             // eq24
-  n2 = floor(min(n2, m / 2.0));                         // limit n2 to m/2
-  float n3 = m - n2;                                     // n3 is symmetric to n2
+  n2 = floor(min(n2, m / 2.0));                               // limit n2 to m/2
+  float n3 = m - n2;                                          // n3 is symmetric to n2
   float ci;
 
   // run the step sequence
