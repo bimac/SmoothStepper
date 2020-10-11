@@ -89,7 +89,7 @@ void SmoothStepper::moveSteps(int32_t nSteps) {
   float ci = _c0;                                             // first interval
 
   // run the step sequence
-  for (int32_t i = 1; i <= nSteps-1; i++) {
+  for (int32_t i = 1; i < nSteps; i++) {
     if (i < n2)
       ci = ci - 2.0*ci/(4.0*(i-1)+1.0) * (n2-i+1.0)/n2;       // acceleration (eq22)
     else if (i < n3)
