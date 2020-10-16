@@ -86,11 +86,13 @@ void SmoothStepper::moveSteps(int32_t nSteps) {
   float n2 = round(_vMax * _vMax / (0.736 * _a));             // eq24
   n2 = floor(min(n2, m / 2.0));                               // limit n2 to m/2
   float n3 = m - n2;                                          // n3 is symmetric to n2
-  float ci = _c0;                                             // first interval
+  float ci;
 
   // run the step sequence
   for (int32_t i = 1; i < nSteps; i++) {
-    if (i < n2)
+    if (ii == 1)
+      ci = _c0;                                               // first interval
+    else if (i < n2)
       ci = ci - 2.0*ci/(4.0*(i-1)+1.0) * (n2-i+1.0)/n2;       // acceleration (eq22)
     else if (i < n3)
       ci = ci;                                                // top speed
