@@ -77,16 +77,16 @@ class SmoothStepper {
 
   private:
     void step();                      // step function
-    uint8_t _pinStep;                 // pin number: step
+    bool _invertDirection = false;    // invert the direction pin?
+    bool _invertEnable = false;       // invert the enable pin?
     uint8_t _pinDirection;            // pin number: direction
     uint8_t _pinEnable;               // pin number: enable
+    uint8_t _pinStep;                 // pin number: step
+    uint16_t _pulseWidth = 1;         // duration of step pulses (µs)
+    uint32_t _stepsPerRev = 200;      // steps per revolution
     float _a;                         // acceleration (steps / s^2)
     float _vMax;                      // maximum speed (steps / s)
     float _c0;                        // duration of first interval (µs)
-    uint16_t _pulseWidth = 1;         // duration of step pulses (µs)
-    uint32_t _stepsPerRev = 200;      // steps per revolution
-    bool _invertEnable = false;       // invert the enable pin?
-    bool _invertDirection = false;    // invert the direction pin?
 };
 
 #endif
