@@ -18,7 +18,8 @@ _______________________________________________________________________________
 
 REVISION HISTORY
 
-version 1.0   Initial release
+version 1.0   initial release
+version 1.1   various cleanups / style fixes (thank you: Florian Uekermann)
 
 _______________________________________________________________________________
 
