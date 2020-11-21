@@ -79,7 +79,7 @@ class SmoothStepper {
     // reset position to zero
     void resetPosition();
 
-    // get position (degrees)
+    // get position (steps)
     uint32_t getPosition();
 
     // stop movement
@@ -100,7 +100,7 @@ class SmoothStepper {
     uint8_t _pinStep;                 // pin number: step
     uint16_t _pulseWidth = 1;         // duration of step pulses (µs)
     uint32_t _stepsPerRev = 200;      // steps per revolution
-    uint32_t _position = 0;           // current position (steps)
+    int32_t _position = 0;            // current position (steps)
     float _a;                         // acceleration (steps / s^2)
     float _vMax;                      // maximum speed (steps / s)
     float _c0;                        // duration of first interval (µs)

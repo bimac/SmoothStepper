@@ -129,12 +129,10 @@ void SmoothStepper::step() {
   delayMicroseconds(_pulseWidth);
   digitalWrite(_pinStep, LOW);
 
-  if (!_direction && _position==0)
-    _position = _stepsPerRev;
-  else if (!_direction)
-    _position--;
+  if (_direction)
+    _position++;
   else
-    _position = (_position + 1) % _stepsPerRev; 
+    _position--;
 }
 
 void SmoothStepper::stop() {
