@@ -22,6 +22,7 @@ version 1.0.0   initial release
 version 1.0.1   various cleanups / style fixes (thank you: Florian Uekermann)
 version 1.0.2   add stop() and isRunning()
 version 1.0.3   keep track of position
+version 1.0.4	add movePosition() and getDirection()
 
 _______________________________________________________________________________
 
@@ -76,11 +77,17 @@ class SmoothStepper {
     // move by n degrees
     void moveDegrees(float degrees);
 
+    // move to absolute position
+    void movePosition(int32_t target);
+
     // reset position to zero
     void resetPosition();
 
     // get position (steps)
     uint32_t getPosition();
+
+    // get direction
+    bool getDirection();
 
     // stop movement
     void stop();
