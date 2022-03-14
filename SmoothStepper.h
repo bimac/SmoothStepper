@@ -25,6 +25,7 @@ REVISION HISTORY
 1.0.4   add movePosition() and getDirection()
 1.0.5   corrected return type of getPosition()
 1.0.6   add get-methods for _a and _vMax
+1.0.7   replace resetPosition() with setPosition()
 
 _______________________________________________________________________________
 
@@ -82,8 +83,8 @@ class SmoothStepper {
     // move to absolute position
     void movePosition(int32_t target);
 
-    // reset position to zero
-    void resetPosition();
+    // set position (steps)
+    void setPosition(int32_t position);
 
     // get the acceleration (steps / s^2)
     float getAcceleration();
