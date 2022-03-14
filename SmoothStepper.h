@@ -18,12 +18,13 @@ _______________________________________________________________________________
 
 REVISION HISTORY
 
-version 1.0.0   initial release
-version 1.0.1   various cleanups / style fixes (thank you: Florian Uekermann)
-version 1.0.2   add stop() and isRunning()
-version 1.0.3   keep track of position
-version 1.0.4   add movePosition() and getDirection()
-version 1.0.5   corrected return type of getPosition()
+1.0.0   initial release
+1.0.1   various cleanups / style fixes (thank you: Florian Uekermann)
+1.0.2   add stop() and isRunning()
+1.0.3   keep track of position
+1.0.4   add movePosition() and getDirection()
+1.0.5   corrected return type of getPosition()
+1.0.6   add get-methods for _a and _vMax
 
 _______________________________________________________________________________
 
@@ -83,6 +84,12 @@ class SmoothStepper {
 
     // reset position to zero
     void resetPosition();
+
+    // get the acceleration (steps / s^2)
+    float getAcceleration();
+
+    // get the maximum speed (steps / s)
+    float getMaxSpeed();
 
     // get position (steps)
     int32_t getPosition();
