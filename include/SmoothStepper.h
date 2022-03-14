@@ -26,6 +26,7 @@ REVISION HISTORY
 1.0.5   corrected return type of getPosition()
 1.0.6   add get-methods for _a and _vMax
 1.0.7   replace resetPosition() with setPosition()
+1.1.0   package as library
 
 _______________________________________________________________________________
 

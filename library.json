@@ -1,0 +1,22 @@
+{
+    "name": SmoothStepper",
+    "version": "1.1.0",
+    "description": "Stepper driver for smooth acceleration profiles",
+    "keywords": "stepper, motor",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/bimac/SmoothStepper.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Florian Rau",
+        "url": "https://github.com/bimac",
+        "maintainer": true
+      }
+    ],
+    "license": "GPLv3",
+    "frameworks": "arduino",
+    "platforms": "*"
+  }
